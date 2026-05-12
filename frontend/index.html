@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PageSpeed PDF Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>PageSpeed PDF Report Generator</h1>
+
+    <input
+      type="text"
+      id="urlInput"
+      placeholder="Enter Website URL"
+    />
+
+    <button id="generateBtn">
+      Analyze
+    </button>
+
+    <button id="downloadBtn" class="secondary hidden">
+      Download PDF Report
+    </button>
+
+    <p id="status"></p>
+
+    <div class="result-card hidden" id="resultCard">
+      <h2>Analysis Results</h2>
+      <div class="result-section">
+        <h3>Mobile</h3>
+        <div class="result-grid">
+          <div class="result-item">
+            <span>Performance</span>
+            <strong id="mobilePerformance">—</strong>
+          </div>
+          <div class="result-item">
+            <span>Accessibility</span>
+            <strong id="mobileAccessibility">—</strong>
+          </div>
+          <div class="result-item">
+            <span>Best Practices</span>
+            <strong id="mobileBestPractices">—</strong>
+          </div>
+          <div class="result-item">
+            <span>SEO</span>
+            <strong id="mobileSeo">—</strong>
+          </div>
+        </div>
+      </div>
+      <div class="result-section">
+        <h3>Desktop</h3>
+        <div class="result-grid">
+          <div class="result-item">
+            <span>Performance</span>
+            <strong id="desktopPerformance">—</strong>
+          </div>
+          <div class="result-item">
+            <span>Accessibility</span>
+            <strong id="desktopAccessibility">—</strong>
+          </div>
+          <div class="result-item">
+            <span>Best Practices</span>
+            <strong id="desktopBestPractices">—</strong>
+          </div>
+          <div class="result-item">
+            <span>SEO</span>
+            <strong id="desktopSeo">—</strong>
+          </div>
+        </div>
+      </div>
+      <p class="result-meta" id="resultMeta">&nbsp;</p>
+      <p class="result-url" id="resultUrl">&nbsp;</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
