@@ -142,7 +142,7 @@ app.post('/analyze', async (req, res) => {
   }
 });
 
-// Fallback to index.html for client-side routing
+// Fallback to index.html for client-side routing (must be AFTER all API routes)
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
