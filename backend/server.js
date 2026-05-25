@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const https = require('https');
 const dotenv = require('dotenv');
+const path = require('path');
 
 dotenv.config();
 
@@ -120,6 +121,9 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// Serve static frontend files
+app.use(express.static(path.join(__dirname, '../frontend')));
+
 app.post('/analyze', async (req, res) => {
   const { url } = req.body;
 
@@ -136,6 +140,11 @@ app.post('/analyze', async (req, res) => {
     console.error(error);
     sendError(res, error, 'Failed to analyze URL');
   }
+});
+
+// Fallback to index.html for client-side routing
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
 app.listen(PORT, () => {
